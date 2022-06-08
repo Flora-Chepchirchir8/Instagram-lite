@@ -19,13 +19,13 @@
 
     <div class="row">
         <div class="col-md-6">
-            {% for img in posts %}
+            {% for image in posts %}
             <div class="row">
                 <div class="col-md-12 showpost">
                     <div class="card" style="width: 100%; height: 100%;">
                         <div class="img">
-                            <a href="#{{img.id}}" data-toggle="modal" data-target="#{{img.id}}">
-                                <img class="card-img-top" src="{{img.image.url}}" class="img-responsive"
+                            <a href="#{{image.id}}" data-toggle="modal" data-target="#{{image.id}}">
+                                <img class="card-img-top" src="{{image.image.url}}" class="img-responsive"
                                     alt="{{image.image_name}}">
                             </a>
                         </div>
