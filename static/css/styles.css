@@ -1,0 +1,29 @@
+ * {
+    font-family: 'Lora', serif;
+}
+.img {
+    max-width: 50%;
+    height: 50%;
+    margin: 0 auto;
+}
+
+.navbar{
+    background-color:#181833;
+    padding:10px;
+    color:#f5deb3;
+}
+
+h3 a{
+    text-decoration: none;
+}
+h2{
+    color:#ff6347;
+}
+
+
+
+.page-footer{
+    background-color: #181833;
+    padding: 20px;
+    color:#f5deb3;
+}

@@ -1,0 +1,20 @@
+{%extends 'base.html'%}
+{{ block.super}}
+{% load bootstrap3 %}
+{% block content%}
+<div class="container-fluid">
+    <div class="row">
+            <div class="col-md-7 mx-auto">
+                <div class="form-section">
+                    <form action="{% url 'post' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+                      <button style="border: solid 1px #333; padding: 1em;" class="btn btn-outline-secondary btn-block mb-4 mx-auto" type="submit" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                          <i class="fas fa-upload fa-lg"></i> Upload
+                        </button>
+                    </form>
+                </div>
+            </div>
+    </div>
+  </div>
+{% endblock %}

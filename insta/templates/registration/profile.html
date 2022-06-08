@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{%block content%}
+
+<div class="container" style="padding: 5%;">
+    <div>
+        <div class="col-sm-4">
+            <div class="profile_pic" class="rounded-circle">
+                <img src="{{user.profile.profile_picture.url }}" alt="Image profile">
+            </div>
+        </div>
+        <hr>
+        <div class="media-body view-profile">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>{{user.username}} <a href="{% url 'update_profile' user.id %}" target="_blank"><button
+                                class="btn">Edit Profile</button></a> <a href="/"><button
+                                class="btn">Settings</button></a>
+                    </h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    
+                </div>
+                <div class="col-md-3">
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p id="bio">{{user.profile.bio}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    {%for img in images%}
+    <div class="col-md-4">
+        <div class="card" style="width: 100%;">
+            <div class="imag" style="width:100%; height:200px">
+                <a href="#{{img.id}}" data-toggle="modal" data-target="#{{img.id}}">
+                    <img class="card-img-top" src="{{img.image.url}}" class="img-responsive" alt="{{image.img_name}}">
+                </a>
+            </div>
+            <div class="col-lg-3">
+                <div class="modal fade" id="{{img.id}}" role="dialog">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">{{img.image_name}}</h4>
+                                <img src="{{img.image.url}}" class="img-responsive" alt="Image"
+                                    style="width:100%;max-width:100%">
+                            </div>
+                            <div class="modal-body">
+                                <p class="text-justify">{{img.caption}}</p>
+                                <p class="text-left"><b>Likes:</b> {{img.likes}}</p>
+                                <p class="text-left"><b>Posted on:</b>{{img.date}}</p>
+
+                            </div>
+                            <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 padding-1">
+                                <input id="{{img.id}}-url" class="form-control input-md responsive" type="text"
+                                    value="{{img.image.url}}">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-block">
+                <h5 class="card-title"><span class="" style="font-weight: 700;">{{img.profile}}</span>
+                    {{img.caption|slice:":20"}}...
+                </h5>
+                <a href="{%url 'comment' img.id %}" class="pl-3">
+                    View comments
+                </a>
+                <br> <br>
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+
+</div>
+
+{%endblock content%}

@@ -1,0 +1,54 @@
+{%extends "base.html"%}
+{% load static %}
+{% load bootstrap3 %}
+{% block content %}
+
+<h3 class="text-center text-uppercase" style="color:#181833;">Comment Section</h3>
+
+<div class="container">
+    <hr>
+    <div class="row">
+        {%for img in images%}
+        <div class="col-md-5">
+            <div class="card" style="width: 100%; height: 100%;">
+                <div class="img">
+                    <a href="#{{img.id}}" data-toggle="modal" data-target="#{{img.id}}">
+                        <img class="card-img-top" src="{{img.image.url}}" class="img-responsive"
+                            alt="{{image.image_name}}">
+                    </a>
+                </div>
+                <div class="card-block">
+                    <br>
+                    <img src="https://img.icons8.com/material-outlined/24/000000/filled-like.png" />
+                    <img src="https://img.icons8.com/material-outlined/24/000000/speech-bubble--v2.png" />
+                    <img src="https://img.icons8.com/windows/32/000000/filled-sent.png" />
+
+                    <h5 class="card-title"><span class="" style="font-weight: 700;">{{img.image_profile}}</span>
+                        {{img.image_caption}}
+                    </h5>
+                    <form class="form" action="" method="post" novalidate>
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+                        <div class="col-md-5">
+                            <button type="submit" class="btn btn-sm btn-info"
+                                style="margin-top:14px; margin-left:-10px">Post comment</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1">
+
+        </div>
+
+        <div class="col-md-6">
+            <h4 style="font-weight:bold;">Comments</h4>
+            <hr>
+            {%for comment in comments%}
+            <p><strong class="text-secondary">{{comment.user.user}}</strong> {{comment.comment}}</p>
+            {%endfor%}
+        </div>
+        {%endfor%}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,76 @@
+{%extends 'base.html'%}
+{% block content %}
+<div class="container">
+    <div class="row">
+        {% if profiles  %}
+        <h3 class="text-center">Found {{ profiles|length }} result on {{message}}</h3>
+        <div class="container">
+            <hr />
+        </div>
+        {% else %}
+        <h3 class="text-center">Found Nothing for you here, kindly search again</h3>
+        {% endif %}
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            {% if profiles %}
+            {% for result in profiles %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="profile_picture" class="rounded-circle" style="margin: 0 auto;">
+                            <img src="{{result.user.profile.profile_picture.url }}" alt="Image profile">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2>{{result.user.username}}
+                                </h2>
+                            </div>
+                        </div>
+                       
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p id="bio"><b style="font-weight: 700;">Bio:</b> {{result.user.profile.bio}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                
+                            </div>
+                            <div class="col-md-3">
+                               
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <hr>
+             <div class="row">
+                <div class="col-md-4">
+                    <div class="card" style="width: 100%;">
+                        <div class="imag" style="width:100%; height:200px">
+                            <a href="#{{result.user.id}}" data-toggle="modal" data-target="#{{result.userid}}">
+                                <img class="card-img-top" src="{{result.user.image.url}}" class="img-responsive"
+                                    alt="{{image.image_name}}">
+                            </a>
+                        </div>
+                        <div class="card-block">
+                            <h5 class="card-title"><span class="" style="font-weight: 700;">{{result.user.image_caption|slice:":20"}}</span>
+                                {{img.image_caption|slice:":20"}}...
+                            </h5>
+                            <br> <br>
+                        </div>
+                    </div>
+                </div>
+             </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}
