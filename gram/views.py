@@ -8,6 +8,7 @@ from django.core.mail import EmailMultiAlternatives, send_mail
 from django.conf import settings
 from django.contrib import messages
 from django.urls import reverse
+from django.contrib.auth import authenticate, login, logout
 
 @login_required
 def display_home(request):
@@ -56,7 +57,7 @@ def add_profile(request):
 
 
 @login_required
-def search_results(request):
+def search(request):
     current_user = request.user
     profile = Profile.get_profile()
     if 'username' in request.GET and request.GET["username"]:
@@ -64,10 +65,10 @@ def search_results(request):
         searched_name = Profile.find_profile(search_term)
         message = search_term
 
-        return render(request,'insta/search.html',{"message":message,"profiles":profile,"user":current_user,"username":searched_name})
+        return render(request,'search.html',{"message":message,"profiles":profile,"user":current_user,"username":searched_name})
     else:
         message = "You haven't searched for any username"
-        return render(request,'insta/search.html',{"message":message})
+        return render(request,'search.html',{"message":message})
 
 
 @login_required
@@ -81,7 +82,7 @@ def user_comments(request,pk):
             comment.image = image
             comment.poster = current_user
             comment.save()
-            return redirect('homepage')
+            return redirect('home')
     else:
         form = CommentForm()
         return render(request,{"user":current_user,"comment_form":form})
@@ -90,10 +91,11 @@ def follow(request,operation,id):
     current_user=User.objects.get(id=id)
     if operation=='follow':
         Follow.follow(request.user,current_user)
-        return redirect('homepage')
+        return redirect('home')
+
     elif operation=='unfollow':
         Follow.unfollow(request.user,current_user)
-        return redirect('homepage')
+        return redirect('home')
         
 def like(request,operation,pk):
     image = get_object_or_404(Image,pk=pk)
@@ -103,7 +105,49 @@ def like(request,operation,pk):
     elif operation =='unlike':
         image.likes -= 1
         image.save()
-    return redirect('homepage')    
+    return redirect('home')  
+
+
+def login_user(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+         login(request, user)
+         return redirect('home')
+        
+        else:
+            messages.success(request,('Invalid information'))
+            return redirect('login')
+         
+    else:
+
+     return render(request,'registration/login.html')  
+
+@login_required
+def logout_user(request):
+    logout(request)
+    return HttpResponseRedirect(reverse("login"))
+
+def register_user(request):
+    if request.method == 'POST':
+         form = UserRegisterForm(request.POST)
+         if form.is_valid():
+             form.save()
+             username = form.cleaned_data['username']
+             password = form.cleaned_data['password1']
+         
+            
+
+             user = authenticate(username=username, password=password)
+             login(request,user)
+
+             messages.success(request,f'Hello {username}, Your account was Successfully Created.You will receive our email shortly.Thank You!!!')
+             return redirect('home')
+    else:
+         form = UserRegisterForm()
+    return render (request,'registration/registration_form.html',{'form':form})
 
 
 

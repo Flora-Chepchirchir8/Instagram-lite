@@ -1,4 +1,4 @@
-{%extends 'insta/base.html'%}
+{%extends 'base.html'%}
 {% block content %}
 {{ block.super}}
 {% load bootstrap4 %}
@@ -60,7 +60,7 @@
     <div class="col-2" style="max-width:22rem; margin-top:2%;">
       <div class="" style="position:fixed; width:290px"> 
           <hr>
-          <div style="">
+          <div >
             {% for profile in profile %}
               {% if profile.user == user %}
                <img class="mb-1" src="{{profile.photo.url}}" alt="" style="height:80px;width:70px; border-radius:50%; float:left; margin-right:10px;  box-shadow: 2px 2px 5px rgba(3,3,3,0.5);">
@@ -72,21 +72,7 @@
           <br>
           <br>
            <a href="{% url 'add_profile' %}" class="btn btn-outline-secondary btn-block mb-4 mx-auto"><i class="fas fa-upload fa-lg"></i> Profile</a> 
-          <div class="all" style="overflow-y:auto; height:400px;margin-top:2px;padding:10px; border-top: 2px solid ; border-bottom: 2px solid; width:100%">
-            <p class="text-muted">Suggestions For You</p>
-            {% for profile in profile %}
-             {% if profile.user != user %}
-            <div>
-              <img src="{{profile.photo.url}}" alt="" style="height:50px;width:50px; border-radius:50%; border-color: red; float:left; margin-right:15px; box-shadow: 2px 2px 5px rgba(3,3,3,0.5);">
-              <a style="text-decoration:none;" href="{% url 'images' pk=profile.pk %}">
-                <h6 style="font-size:16px">{{profile.user}} <br>
-                  <a href="/follow/follow/{{profile.user.id}}/" class="btn  bt-sm">{{follow}}Follow</a>
-                  <a href="/follow/unfollow/{{profile.user.id}}/" class="btn btn-sm text-danger">{{unfollow}}Unfollow</a></h6>
-            </div>
-             {% endif %}
-            <hr>
-            {% endfor %}
-        </div>  
+        
       </div>
     </div>
   </div>

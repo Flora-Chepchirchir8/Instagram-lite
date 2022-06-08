@@ -15,14 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, re_path
-from django.contrib.auth import views 
+from gram import views
 
 
 urlpatterns = [
   re_path('admin/', admin.site.urls),
   # re_path('',include('insta.urls')),
   re_path('',include('gram.urls')),
-  re_path(r'accounts/', include('registration.backends.simple.urls')),
-    #url(r'logout/', views.LogoutView.as_view(), {"next_page": 'accounts/login'})
-  re_path(r'logout/', views.logout_then_login),
+  re_path('register/',views.register_user,name='register'),
+  re_path('accounts/login/',views.login_user,name='login'),
+  re_path('logout/', views.logout_user, name='logout'),
+  re_path('tinymce/', include('tinymce.urls')),
+  # re_path(r'accounts/', include('registration.backends.simple.urls')),
+  #   #url(r'logout/', views.LogoutView.as_view(), {"next_page": 'accounts/login'})
+  # re_path(r'logout/', views.logout_then_login),
 ]

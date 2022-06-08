@@ -25,8 +25,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'insta',
-    'registration',
+ 
+    
     'bootstrap4',
     'bootstrap3',
     'django.contrib.admin',
@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tinymce',
     'gram',
+    'crispy_forms',
+    
+
     # 'cloudinary',
 ]
 
@@ -141,3 +144,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #   api_key = "845195192227671", 
 #   api_secret = "FkrrelGjjHOBQhkamdIUVzyggf8" 
 # )
+
+
+CRISPY_TEMPLATE_PACK='bootstrap4'
