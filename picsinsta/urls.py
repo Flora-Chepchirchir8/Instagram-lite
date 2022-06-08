@@ -20,7 +20,8 @@ from django.contrib.auth import views
 
 urlpatterns = [
   re_path('admin/', admin.site.urls),
-  re_path('',include('insta.urls')),
+  # re_path('',include('insta.urls')),
+  re_path('',include('gram.urls')),
   re_path(r'accounts/', include('registration.backends.simple.urls')),
     #url(r'logout/', views.LogoutView.as_view(), {"next_page": 'accounts/login'})
   re_path(r'logout/', views.logout_then_login),

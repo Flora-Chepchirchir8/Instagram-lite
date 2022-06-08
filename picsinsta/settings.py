@@ -27,6 +27,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'insta',
     'registration',
+    'bootstrap4',
     'bootstrap3',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -34,6 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tinymce',
+    'gram',
     # 'cloudinary',
 ]
 
@@ -74,9 +77,9 @@ WSGI_APPLICATION = 'picsinsta.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'chirry',
+        'NAME': 'kimberly',
         'USER': 'moringa',
-    'PASSWORD':'chirry',
+    'PASSWORD':'access',
     }
 }
 
