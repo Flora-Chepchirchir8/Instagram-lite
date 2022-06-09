@@ -1,5 +1,5 @@
 # Instagram
-* live link
+* live link run in incognito mode https://cherry-instagram-clone.herokuapp.com/
 # Description
 * It is simple instragram clone app which resembles instagram app, build using Django. Where a user can upload their images, posts and also view posts added by other people.
 # Author
@@ -15,7 +15,7 @@
 * 5.A text editor
 ## Prerequisite
 
-* Clone the repository: git clone 
+* Clone the repository: git clone  https://cherry-instagram-clone.herokuapp.com/
 * Cd to the folder and install requirements cd Instagram_Clone
 
 * In the projects root directory, install the virtualenv library using pip and create a virtual environment. Run the following commands respectively:
