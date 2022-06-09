@@ -72,7 +72,21 @@
           <br>
           <br>
            <a href="{% url 'add_profile' %}" class="btn btn-outline-secondary btn-block mb-4 mx-auto"> Profile</a> 
-        
+          
+      <div class="all" style="overflow-y:auto; height:400px;margin-top:2px;padding:10px; border-top: 2px solid ; border-bottom: 2px solid; width:100%">
+        <p class="text-muted">Suggestions For You</p>
+        {% for profile in profile %}
+         {% if profile.user != user %}
+        <div>
+          <img src="{{profile.photo.url}}" alt="" style="height:50px;width:50px; border-radius:50%; border-color: red; float:left; margin-right:15px; box-shadow: 2px 2px 5px rgba(3,3,3,0.5);">
+          <a style="text-decoration:none;" href="">
+            <h6 style="font-size:16px">{{profile.user}} <br>
+              <a href="/follow/follow/{{profile.user.id}}/" class="btn  bt-sm btn-outline-secondary" >{{follow}}Follow</a>
+              <a href="/follow/unfollow/{{profile.user.id}}/" class="btn btn-sm btn-outline-secondary">{{unfollow}}Unfollow</a></h6>
+        </div>
+         {% endif %}
+        <hr>
+        {% endfor %}
       </div>
     </div>
   </div>
