@@ -11,11 +11,8 @@ urlpatterns=[
     re_path(r'search/', views.search, name='search_results'),
     re_path(r'comment/(?P<pk>\d+)',views.user_comments,name='comment'),
     re_path(r'follow/(?P<operation>.+)/(?P<id>\d+)',views.follow,name='follow'),
-#  re_path (r'^posts/',views.new_post, name='post'),
-#  re_path (r'comment/<int:id>', views.add_comment, name='comment'),
-#  re_path (r'search/',views.search, name='search'),
-#  re_path (r'profile/',views.show_profile, name='profile'),
-#  re_path ('update/<int:id>',views.update_profile,name='update_profile'),
+    re_path(r'upload/', views.upload, name='upload_image'),
+
 
 
 ]

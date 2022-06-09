@@ -1,8 +1,10 @@
+
 {%extends 'base.html'%}
 {% block content %}
 {{ block.super}}
-{% load bootstrap3 %}
-<hr>
+{% load bootstrap4 %}
+
+
 <br>
 <div class="container-fluid">
   <div class="row">
@@ -10,7 +12,7 @@
             <div class="card">
                 <h5 class="card-header h5 text-center">Upload Photo</h5>
                     <div class="card-body">
-                        <form action="{% url 'post' %}" method="POST" enctype="multipart/form-data">
+                        <form action="{% url 'upload_image' %}" method="POST" enctype="multipart/form-data">
                           {% csrf_token %}
                           {% bootstrap_form form %}
                            <button style="border: solid 1px #333; padding: 1em;" class="btn btn-outline-secondary btn-block mb-4 mx-auto" type="submit" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">

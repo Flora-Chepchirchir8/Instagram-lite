@@ -4,7 +4,7 @@
 {% load static%}
 <nav class="navbar navbar-expand-lg navbar-light" style="padding-top: 0; padding-bottom:0; background:#FAFAFA;">
     <div class="container">
-        <a class="smooth-scroll nav-link col-3 mr-1" href="/home" style="font-size: 35px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/130px-Instagram_logo.svg.png" id="logo-name" class="img-fluid pl-3"></a>
+        <a class="smooth-scroll nav-link col-3 mr-1" href="/home" style="font-size: 35px"><i class="fa-brands fa-instagram fa-lg"></i><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/130px-Instagram_logo.svg.png" id="logo-name" class="img-fluid pl-3"></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
             aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fa fa-bars"></i>
@@ -25,30 +25,26 @@
             <div class="col-md-4">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link open-nav" href="{% url "home" %}" data-toggle="tooltip" data-placement="bottom" title="Home">
-                            <i class="fa-brands fa-instagram fa-lg"></i>
+                        <a class="nav-link open-nav" href="{% url 'home' %}" data-toggle="tooltip" data-placement="bottom" title="Home">
+                            <img src="https://img.icons8.com/material-outlined/2x/home--v2.png" id="logo-name" class="img-fluid pl-3" style="height: 25px; color: grey;" >
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link open-nav" href="" data-toggle="tooltip" data-placement="bottom" title="Upload Photo">
-                            <i class="fas fa-cloud-upload-alt fa-lg"></i>
+                        <a class="nav-link open-nav" href="{% url 'upload_image' %}" data-toggle="tooltip" data-placement="bottom" title="Upload Photo">
+                            <i class="fas fa-upload fa-lg" style="color: black;"></i>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link open-nav" href="#" data-toggle="tooltip" data-placement="bottom" title="Discover People">
-                            <i class="far fa-heart fa-lg"></i>
-                        </a>
-                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link open-nav" href="/profile/{{user.id}}" data-toggle="tooltip" data-placement="bottom" title="Profile">
-                            <i class="far fa-user-circle show fa-lg"></i>
+                            <i class="far fa-user-circle show fa-lg" style="color: black;"></i>
                         </a>
                     </li>
                 
                     
                     <li class="nav-item">
                         <a class="nav-link open-nav" href="/logout/" data-toggle="tooltip" data-placement="bottom" title="Logout">
-                        <i class="fas fa-sign-out-alt fa-lg"></i>
+                        <i class="fas fa-sign-out-alt fa-lg" style="color: black;"></i>
                         </a>
                     </li>
                 </ul>

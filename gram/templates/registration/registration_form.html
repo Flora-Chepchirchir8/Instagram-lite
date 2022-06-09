@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'registration/base.html' %}
 {% load bootstrap4 %}
  {% load crispy_forms_tags %}
 {% block content %}
@@ -6,14 +6,12 @@
 <div class="container"> 
      <hr>
     <div class="row">
-        <div class="col-md-8">
-         <div class="logo mb-3 mt-3 text-center">
-           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/200px-Instagram_logo.svg.png" alt="" class="img-fluid">  
-         </div>
-          <hr>
-            <img src="https://images.unsplash.com/photo-1611262588024-d12430b98920?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW5zdGFncmFtJTIwYXBwfGVufDB8fDB8fA%3D%3D&w=1000&q=80" style="height:550px;width:720px; border-radius:10px" class="img-fluid"alt="Instagram Lite Images">
+        <div class="col-md-4">
+         
+        
+            
         </div>
-        <div class="col-md-4" style="background-color:#F5F5F5; border-radius:10px; box-shadow: 2px 2px 5px rgba(3,3,3,0.5);" >
+        <div class="col-md-6" style="background-color:#d4d0d0; border-radius:10px; box-shadow: 2px 2px 5px rgba(117, 115, 115, 0.5);" >
             <br>
             {% if form.errors %}
                 <p class="text-danger text-center">There was an error, check your Information and try again!!!</p>
@@ -42,6 +40,6 @@
         </div>
     </div>
     <hr>
-    <p class="mt-5 mb-3 text-muted text-center"> &copy; 2022 Sir Instagram Lite</p>
+    <p class="mt-5 mb-3 text-muted text-center"> &copy; 2022 Flora Chepchirchir Instagram </p>
 </div>
 {% endblock %}
